@@ -1,0 +1,106 @@
+/* Animation utilities */
+.animate-on-scroll {
+  will-change: transform, opacity;
+}
+
+.animate-visible {
+  opacity: 1 !important;
+  transform: translateY(0) translateX(0) scale(1) !important;
+}
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F6F4EF;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #6E6A63;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #0E0F12;
+}
+
+/* Selection color */
+::selection {
+  background-color: rgba(209, 59, 59, 0.2);
+  color: #0E0F12;
+}
+
+/* Focus styles */
+*:focus-visible {
+  outline: 2px solid rgba(209, 59, 59, 0.35);
+  outline-offset: 2px;
+}
+
+/* Image loading placeholder */
+img {
+  background-color: #F6F4EF;
+}
+
+/* Button transitions */
+button {
+  transition: all 0.3s ease;
+}
+
+/* Card hover effects */
+.shadow-card-hover {
+  box-shadow: 0 24px 50px rgba(14, 15, 18, 0.15);
+}
+
+/* Responsive typography adjustments */
+@media (max-width: 640px) {
+  .heading-xl {
+    font-size: clamp(32px, 8vw, 44px);
+  }
+  
+  .heading-lg {
+    font-size: clamp(28px, 6vw, 34px);
+  }
+  
+  .heading-md {
+    font-size: clamp(20px, 5vw, 24px);
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  .animate-on-scroll {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* Print styles */
+@media print {
+  .grain-overlay,
+  nav,
+  .btn-primary,
+  .btn-secondary {
+    display: none !important;
+  }
+  
+  body {
+    background: white !important;
+    color: black !important;
+  }
+}

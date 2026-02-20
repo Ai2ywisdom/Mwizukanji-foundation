@@ -1,0 +1,198 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@700;800&family=Space+Mono:wght@400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 40 23% 95%;
+    --foreground: 220 14% 7%;
+    --card: 40 23% 95%;
+    --card-foreground: 220 14% 7%;
+    --popover: 40 23% 95%;
+    --popover-foreground: 220 14% 7%;
+    --primary: 220 14% 7%;
+    --primary-foreground: 40 23% 95%;
+    --secondary: 40 10% 90%;
+    --secondary-foreground: 220 14% 7%;
+    --muted: 40 10% 90%;
+    --muted-foreground: 38 8% 41%;
+    --accent: 0 60% 52%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 40 10% 85%;
+    --input: 40 10% 85%;
+    --ring: 0 60% 52%;
+    --radius: 1.375rem;
+    
+    --paper: #F6F4EF;
+    --ink: #0E0F12;
+    --coral: #D13B3B;
+    --warm-gray: #6E6A63;
+  }
+
+  .dark {
+    --background: 220 14% 7%;
+    --foreground: 40 23% 95%;
+    --card: 220 14% 7%;
+    --card-foreground: 40 23% 95%;
+    --popover: 220 14% 7%;
+    --popover-foreground: 40 23% 95%;
+    --primary: 40 23% 95%;
+    --primary-foreground: 220 14% 7%;
+    --secondary: 220 10% 15%;
+    --secondary-foreground: 40 23% 95%;
+    --muted: 220 10% 15%;
+    --muted-foreground: 40 10% 70%;
+    --accent: 0 60% 52%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 220 10% 20%;
+    --input: 220 10% 20%;
+    --ring: 0 60% 52%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-[#F6F4EF] text-[#0E0F12] antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+  }
+}
+
+@layer components {
+  .eyebrow {
+    font-family: 'Space Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--warm-gray);
+  }
+  
+  .heading-xl {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: clamp(44px, 5vw, 78px);
+    letter-spacing: -0.02em;
+    line-height: 0.95;
+    text-transform: uppercase;
+  }
+  
+  .heading-lg {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: clamp(34px, 3.6vw, 56px);
+    letter-spacing: -0.01em;
+    line-height: 1.0;
+    text-transform: uppercase;
+  }
+  
+  .heading-md {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: clamp(24px, 2.4vw, 36px);
+    letter-spacing: -0.01em;
+    line-height: 1.1;
+  }
+  
+  .body-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--warm-gray);
+  }
+  
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-8 py-4 rounded-full font-semibold text-white transition-all duration-300;
+    background-color: var(--coral);
+  }
+  
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(209, 59, 59, 0.3);
+  }
+  
+  .btn-secondary {
+    @apply inline-flex items-center justify-center px-8 py-4 rounded-full font-semibold transition-all duration-300;
+    background-color: transparent;
+    border: 2px solid var(--ink);
+    color: var(--ink);
+  }
+  
+  .btn-secondary:hover {
+    background-color: var(--ink);
+    color: var(--paper);
+    transform: translateY(-2px);
+  }
+  
+  .card-rounded {
+    @apply rounded-[22px] overflow-hidden;
+  }
+  
+  .shadow-card {
+    box-shadow: 0 18px 40px rgba(14, 15, 18, 0.10);
+  }
+  
+  .shadow-card-dark {
+    box-shadow: 0 22px 55px rgba(0, 0, 0, 0.28);
+  }
+  
+  .grain-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.04;
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .bg-paper {
+    background-color: var(--paper);
+  }
+  
+  .bg-ink {
+    background-color: var(--ink);
+  }
+  
+  .bg-coral {
+    background-color: var(--coral);
+  }
+  
+  .text-ink {
+    color: var(--ink);
+  }
+  
+  .text-coral {
+    color: var(--coral);
+  }
+  
+  .text-warm-gray {
+    color: var(--warm-gray);
+  }
+}
